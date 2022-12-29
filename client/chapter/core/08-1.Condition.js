@@ -32,7 +32,7 @@ if (didWatchMovie === "yes") {
 }
 
 // 멀티 조건부 연산자 식
-let answer =
+let answer2 =
   didWatchMovie === "yes"
     ? "그 영화 재미있더라"
     : goingToWatchMovie === "yes"
