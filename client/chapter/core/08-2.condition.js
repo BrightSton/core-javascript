@@ -31,7 +31,7 @@ let whichFalsy = true && " " && [] && { thisIsFalsy: false };
 // 첫번째 Truthy를 찾는 연산 (||)
 let whichTruthy = false || "" || [2, 3].length || { thisIsTruthy: true };
 
-let userName = prompt("ID는?", "");
+let userName = prompt("ID는?");
 /* if (userName === "" || userName === null) {
   alert("적어야지~");
 } else if (userName === "admin") {
@@ -47,14 +47,14 @@ let userName = prompt("ID는?", "");
   alert("그걸 까먹니~");
 } */
 
-if (userName === "admin") {
+if (userName?.toLowerCase() === "admin") {
   let pw = prompt("PW는?", "");
-  if (pw === "master") {
+  if (pw?.toLowerCase() === "master") {
     alert("yes, my master");
   } else {
     alert("그걸 까먹니~");
   }
-} else if (userName === "" || userName === null) {
+} else if (userName.replace(/\s*/g, "") === "" || userName === null) {
   alert("적어야지~");
 } else {
   alert("그걸 까먹니~");
