@@ -10,6 +10,7 @@ const arrayLike = {
   1: "head",
   2: "div",
   length: 3,
+  //[symbol.iterator](){...}
 };
 
 for (let value in arrayLike) {
@@ -106,7 +107,45 @@ const randomUser = {
 // - 성능 비교 진단
 
 /* 
+for(let key in randomUser){
+  let L1 = randomUser[key];
+  
+  if(({}).hasOwnProperty.call(randomUser,key)){
+    console.log('L1 : ' ,key);
+    if(typeof L1 === 'object'){
+      for(let key in L1){
+        let L2 = L1[key];
+        if(({}).hasOwnProperty.call(randomUser,key)){
+          console.log('\t L2 : ' ,key);
+          if(typeof L2 === 'object'){
+            
+          }
+        }
+      }
+    }
+  }
+  
+}
+ */
+
+/* 
   Object.entries
   Object.keys
   Object.values 
 */
+
+for (let keyValue of Object.entries(randomUser)) {
+  let key = keyValue[0];
+  let value = keyValue[1];
+
+  console.log("L1 : ", key);
+
+  if (typeof value === "object") {
+    for (let keyValue of Object.entries(value)) {
+      let key = keyValue[0];
+      let value = keyValue[1];
+
+      console.log("\t L2 : ", key);
+    }
+  }
+}
