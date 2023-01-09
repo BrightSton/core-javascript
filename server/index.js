@@ -1,4 +1,4 @@
-const liveServer = require("live-server");
+/* const liveServer = require("live-server");
 
 const params = {
   host: "localhost",
@@ -7,4 +7,6 @@ const params = {
   root: "./client",
 };
 
-liveServer.start(params);
+liveServer.start(params); */
+
+console.log(window);
