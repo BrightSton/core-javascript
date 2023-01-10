@@ -1,8 +1,9 @@
 # 멋쟁이 사자처럼
 
-## 자바스크립트 코어에 대해 학습합니다.
+## 자바스크립트 학습 저장소
 
-학습이 완료된 항목은 체크박스로 표시됩니다.
+학습 주제별 브랜치를 나눠 수업을 진행합니다.
+
 
 ### Basic
 
@@ -55,3 +56,4 @@
 - [x] Object (Object) [바로가기](https://github.com/simseonbeom/core-javascript/blob/01.core/client/chapter/core/11-1.object.js)
 - [x] Object (copy by reference) [바로가기](https://github.com/simseonbeom/core-javascript/blob/01.core/client/chapter/core/11-2.object.js)
 - [x] Object (Garbage Collection) [바로가기](https://github.com/simseonbeom/core-javascript/blob/01.core/client/chapter/core/11-3.object.js)
+
