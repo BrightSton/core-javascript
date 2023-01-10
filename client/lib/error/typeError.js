@@ -3,9 +3,9 @@ function typeError(message) {
 }
 
 function refError(message) {
-  throw new refferenceError(message);
+  throw new ReferenceError(message);
 }
 
 function syntaxError(message) {
-  throw new syntaxError(message);
+  throw new SyntaxError(message);
 }
