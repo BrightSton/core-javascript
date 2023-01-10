@@ -37,3 +37,16 @@ getNode(".first").matches(".first");
 
 // - contains : 선택자 자식들 중에 해당 element가 있는가
 getNode("h1").contains(getNode(".first"));
+
+let firstNode = getNode(".first");
+
+let clicked = false;
+document.addEventListener("click", () => {
+  if (firstNode.classList.contains("first") && !clicked) {
+    firstNode.classList.add("is-active");
+  } else {
+    firstNode.classList.remove("is-active");
+  }
+
+  clicked = !clicked;
+});
