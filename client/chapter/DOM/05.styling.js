@@ -12,47 +12,21 @@ const first = getNode(".first");
 //console.log((first.className = "hola")); -> 잘 사용하지 않음.
 first.classList.add("hola");
 first.classList.remove("hola");
-first.classList.toggle("hola");
+//first.classList.toggle("hola");
 console.log(first.classList.contains("hola"));
-
-function addClass(node, className) {
-  if (typeof node === "string") node = getNode(node);
-
-  if (typeof className !== "string") {
-    typeError("addClass 함수의 두 번째 인자에는 문자 타입이 와야 합니다.");
-  }
-  node.classList.add(className);
-}
-
-// 변경하기 : 대상의 클라스를 지운다.
-function removeClass(node, className) {
-  if (typeof node === "string") node = getNode(node);
-
-  if (!className) {
-    node.className = "";
-    return;
-  }
-  if (typeof className !== "string") {
-    typeError("removeClass 함수의 두 번째 인자에는 문자 타입이 와야 합니다.");
-  }
-  node.classList.remove(className);
-}
-
-function toggleClass(node, className) {
-  if (typeof node === "string") node = getNode(node);
-
-  if (typeof className !== "string") {
-    typeError("toggleClass 함수의 두 번째 인자에는 문자 타입이 와야 합니다.");
-  }
-  node.classList.toggle(className);
-}
-
-removeClass(".first", 123);
 
 /* 스타일 변경 방법 --------------------------------------------------------- */
 
 // - style.cssText - "style" 속성 전체에 대응하므로 스타일 전체에 대한 문자열 저장
 
+//first.style.backgroundColor = "red";
+
+console.log(first.style.fontSize); // -> 빈 값이 담김.
+
 /* 계산된 스타일 읽기 ------------------------------------------------------- */
 
 // - getComputedStyle(element, [pseudoElement]) `읽기 전용`
+
+let size = getComputedStyle(first).fontSize;
+
+console.log(size); // -> 제 값이 담김.
