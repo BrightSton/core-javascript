@@ -20,6 +20,20 @@ first.addEventListener("click", handler);
 /* const off = bindEvent(".first", "click", handler);
 bindEvent(".second", "click", off); */
 
+const ground = getNode(".ground");
+const ball = getNode(".ball");
+
+ground.addEventListener("click", function (e) {
+  console.log(e.offsetX, e.offsetY);
+  ball.style.transform = `translate(${e.offsetX - ball.offsetWidth / 2}px,${
+    e.offsetY - ball.offsetHeight / 2
+  }px)`;
+});
+
+ground.addEventListener("mousemove", function (e) {
+  console.log(e.offsetX, e.offsetY);
+});
+
 /* 이벤트 추가/제거 --------------------------------------------------------- */
 
 // - addEventListener
