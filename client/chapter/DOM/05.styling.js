@@ -30,3 +30,6 @@ console.log(first.style.fontSize); // -> 빈 값이 담김.
 let size = getComputedStyle(first).fontSize;
 
 console.log(size); // -> 제 값이 담김.
+
+getCss(".first", "backgroundColor");
+setCss(".first", "color", "blue");

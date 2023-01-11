@@ -41,7 +41,6 @@ function getCss(node, prop) {
   }
   return getComputedStyle(node).prop;
 }
-getCss(".first", "backgroundColor");
 
 // 대상에게 원하는 css 속성을 추가 = set
 function setCss(node, prop, value) {
@@ -56,8 +55,6 @@ function setCss(node, prop, value) {
   }
   node.style[prop] = value;
 }
-
-setCss(".first", "color", "blue");
 
 const css = (node, prop, value) =>
   !value ? getCss(node, prop) : setCss(node, prop, value);
