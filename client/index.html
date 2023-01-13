@@ -1,33 +1,26 @@
-<!DOCTYPE html>
-<html lang="ko-KR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="./style.css" />
-    <title>javascript core</title>
-    <script src="./lib/dom/getNode.js"></script>
-    <script src="./lib/error/typeError.js"></script>
-    <script src="./lib/dom/attr.js"></script>
-    <script src="./lib/dom/css.js"></script>
-    <script src="./lib/dom/bindEvent.js"></script>
-    <script defer src="./chapter/DOM/07.bubble.js"></script>
-  </head>
-  <body>
-    <h1>
-      <span class="first" id="first">hello</span>
-      <span class="second" id="second">world</span>
-    </h1>
-    <section class="visual">
-      <div class="pop"></div>
-      <article class="news">
-        <p class="desc">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus,
-          dolorum debitis! Nam beatae obcaecati perferendis eligendi, deserunt
-          optio consequatur veniam? In accusantium eaque totam, sit iste
-          adipisci non! Repellendus, illo?
-        </p>
-      </article>
-    </section>
-  </body>
-</html>
+<div class="alert alert-error">제대로된 이름을 입력해주세요 !</div>
+<div class="alert alert-success">클립보드에 복사 되었습니다 !</div>
+
+<div class="container">
+  <h2>🤣 주접 생성기</h2>
+  <h3>주접 생성기를 통해 사랑을 전하세요</h3>
+
+  <form>
+    <label for="nameField"
+      >이름을 적어주세요 <span class="icon">👉</span></label
+    >
+    <input
+      type="text"
+      id="nameField"
+      placeholder="이름을 작성해주세요"
+      value=""
+    />
+
+    <input type="submit" value="주접 떨기" id="submit" />
+
+    <!-- 버튼 태그 레이어 -->
+    <div class="result">이름 작성 후 주접 떨기 버튼을 눌러주세요.</div>
+
+    <span class="notice"> 👆 클릭시 클립보드에 복사됩니다! 👆</span>
+  </form>
+</div>
