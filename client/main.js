@@ -8,6 +8,8 @@ import {
   isNumericString,
   showAlert,
   copy,
+  addClass,
+  removeClass,
 } from "./lib/index.js";
 
 import { jujeobData } from "./data/data.js";
@@ -25,6 +27,18 @@ function clickSubmitHandler(e) {
   if (!name) {
     console.log("이름으로 꼭 입력해 주세요.");
     showAlert(".alert-error", "잘못된 정보입니다.!", 2000);
+
+    /* addClass(resultArea, "shake");
+    setTimeout(() => {
+      removeClass(resultArea, "shake");
+    }, 1000); */
+    // GSAP
+    gsap.fromTo(
+      resultArea,
+      0.01,
+      { x: -5 },
+      { x: 5, clearProps: "x", repeat: 20 }
+    );
     return;
   }
 
