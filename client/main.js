@@ -29,7 +29,7 @@ const [rollingDiceButton, recordButton, resetButton] = getNodes(
 // const recordButton = getNode('.buttonGroup > button:nth-child(2)');
 // const resetButton = getNode('.buttonGroup > button:nth-child(3)');
 
-const recodeList = getNode(".recordListWrapper");
+const recordListWrapper = getNode(".recordListWrapper");
 
 console.log(rollingDiceButton);
 
@@ -56,9 +56,13 @@ const handleRollingDice = (() => {
 })();
 
 const handleRecord = () => {
-  visibleElement(recodeList);
-  //invisibleElement(recodeList);
+  visibleElement(recordListWrapper);
+};
+
+const handleReset = () => {
+  invisibleElement(recordListWrapper);
 };
 
 rollingDiceButton.addEventListener("click", handleRollingDice);
 recordButton.addEventListener("click", handleRecord);
+resetButton.addEventListener("click", handleReset);
