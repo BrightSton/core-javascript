@@ -7,11 +7,12 @@
    */
 
 // xhrData 함수 만들기 method, url
-function xhrData({
+export function xhrData({
   method = "GET",
   url = "",
   body = null,
   onSuccess = null,
+  onFail = null,
   headers = {
     "Content-Type": "application/json",
   },
@@ -32,21 +33,16 @@ function xhrData({
     if (status >= 200 && status < 400) {
       if (readyState === 4) {
         console.log("통신 완료");
-        console.log(JSON.parse(response));
+        onSuccess(JSON.parse(response));
       }
     } else {
-      console.error("통신 실패");
+      onFail("통신 실패");
     }
   });
 
   // 서버에 요청
   xhr.send(JSON.stringify(body));
 }
-
-xhrData({
-  url: "https://jsonplaceholder.typicode.com/users",
-  onSuccess: () => {},
-});
 
 /* xhrData("POST", "https://jsonplaceholder.typicode.com/users", {
   name: "kindtiger",
@@ -70,4 +66,49 @@ xhrData({
     bs: "harness real-time e-markets",
   },
 });
- */
+*/
+
+/* xhrData({
+  url: "https://jsonplaceholder.typicode.com/user",
+  onSuccess: (result) => {
+    console.log(result);
+  },
+  onFail: (err) => {
+    console.error(err);
+  },
+}); */
+
+xhrData.get = (url, onSuccess, onFail) => {
+  xhrData({
+    url,
+    onSuccess,
+    onFail,
+  });
+};
+xhrData.post = (url, body, onSuccess, onFail) => {
+  xhrData({
+    url,
+    body,
+    onSuccess,
+    onFail,
+    method: "POST",
+  });
+};
+xhrData.put = (url, body, onSuccess, onFail) => {
+  xhrData({
+    url,
+    body,
+    onSuccess,
+    onFail,
+    method: "PUT",
+  });
+};
+xhrData.delete = (url, body, onSuccess, onFail) => {
+  xhrData({
+    url,
+    body,
+    onSuccess,
+    onFail,
+    method: "DELETE",
+  });
+};
