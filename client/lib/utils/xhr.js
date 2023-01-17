@@ -7,16 +7,28 @@
    */
 
 // xhrData 함수 만들기 method, url
-function xhrData(method, url, body) {
+function xhrData({
+  method = "GET",
+  url = "",
+  body = null,
+  onSuccess = null,
+  headers = {
+    "Content-Type": "application/json",
+  },
+}) {
   const xhr = new XMLHttpRequest();
 
   // 비동기 통신 오픈
   xhr.open(method, url);
 
-  // 객체 구조 분해 할당
-  const { status, readyState, response } = xhr;
+  /* Object.entries(headers).forEach(([key, value]) => {
+    xhr.setRequestHeader(key, value);
+  }); */
 
   xhr.addEventListener("readystatechange", () => {
+    // 객체 구조 분해 할당
+    const { status, readyState, response } = xhr;
+
     if (status >= 200 && status < 400) {
       if (readyState === 4) {
         console.log("통신 완료");
@@ -31,7 +43,12 @@ function xhrData(method, url, body) {
   xhr.send(JSON.stringify(body));
 }
 
-xhrData("POST", "https://jsonplaceholder.typicode.com/users", {
+xhrData({
+  url: "https://jsonplaceholder.typicode.com/users",
+  onSuccess: () => {},
+});
+
+/* xhrData("POST", "https://jsonplaceholder.typicode.com/users", {
   name: "kindtiger",
   username: "seonbeom",
   email: "tiger@april.biz",
@@ -53,3 +70,4 @@ xhrData("POST", "https://jsonplaceholder.typicode.com/users", {
     bs: "harness real-time e-markets",
   },
 });
+ */
