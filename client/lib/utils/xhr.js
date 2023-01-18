@@ -1,4 +1,4 @@
-import { typeError } from "../error.js";
+import { typeError } from "../error/typeError.js";
 
 /* readyState
   0: uninitialize // 초기화
@@ -129,7 +129,7 @@ const defaultoptions = {
   body: null,
 };
 
-function xhrPromise(options = {}) {
+export function xhrPromise(options = {}) {
   const xhr = new XMLHttpRequest();
 
   const { method, url, body, headers } = Object.assign(
@@ -161,8 +161,38 @@ function xhrPromise(options = {}) {
   });
 }
 
-xhrPromise({
+/* xhrPromise({
   url: "https://jsonplaceholder.typicode.com/users/1",
 })
   .then((res) => console.log(res))
   .catch((err) => console.log(err));
+ */
+
+xhrPromise.get = (url) => {
+  return xhrPromise({
+    url,
+  });
+};
+
+xhrPromise.post = (url, body) => {
+  return xhrPromise({
+    url,
+    body,
+    method: "POST",
+  });
+};
+
+xhrPromise.put = (url, body) => {
+  return xhrPromise({
+    url,
+    body,
+    method: "PUT",
+  });
+};
+
+xhrPromise.delete = (url) => {
+  return xhrPromise({
+    url,
+    method: "DELETE",
+  });
+};
