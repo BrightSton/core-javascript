@@ -1,4 +1,4 @@
-import { insertLast, xhrData } from "./lib/index.js";
+import { xhrPromise, insertLast, xhrData } from "./lib/index.js";
 
 xhrData.get(
   "https://jsonplaceholder.typicode.com/users/1",
@@ -11,3 +11,8 @@ xhrData.get(
     insertLast("body", "데이터 로딩 실패");
   }
 );
+
+xhrPromise
+  .get("https://jsonplaceholder.typicode.com/users/1")
+  .then((res) => insertLast(document.body.JSON.stringify(res)))
+  .catch((err) => console.log(err));
