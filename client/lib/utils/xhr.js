@@ -123,7 +123,7 @@ const defaultoptions = {
   url: "",
   method: "GET",
   headers: {
-    "content-Type ": "application/json",
+    "Content-type ": "application/json",
     "Access-Control-Allow-Origin": "*",
   },
   body: null,
