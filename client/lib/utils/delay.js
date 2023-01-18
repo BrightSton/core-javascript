@@ -54,8 +54,9 @@ delayP({
   .then((res) => console.log(res))
   .catch((err) => console.log(err));
 
-// async await
-
+// async : 일반 함수를 promise를 반환하는 함수로 만듦.
+// await : 1. promise를 반환하는 result를 가져오기
+//         2.코드 실행 흐름 제어
 async function delayA() {
   return "완료";
 }
