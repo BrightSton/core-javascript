@@ -5,3 +5,4 @@ export * from "./xhr.js";
 export * from "./delay.js";
 export * from "./stone.js";
 export * from "./theme.js";
+export * from "./storage.js";

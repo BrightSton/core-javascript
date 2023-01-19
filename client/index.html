@@ -3,18 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script defer type="module" src="./main.js"></script>
+    <script src="./main.js" type="module"></script>
 
     <title>Document</title>
   </head>
   <body>
-    <div class="user-card-list">
-      <h2>User List</h2>
-
-      <section class="user-card-inner"></section>
+    <div class="container">
+      <form>
+        <textarea
+          name="textField"
+          id="textField"
+          cols="30"
+          rows="10"
+        ></textarea>
+        <div class="buttons">
+          <input type="submit" value="전송" />
+          <input type="submit" value="삭제" />
+        </div>
+      </form>
     </div>
   </body>
 </html>
