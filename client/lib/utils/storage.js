@@ -52,7 +52,7 @@ export function saveStorage(key, value) {
 export function loadStorage(key) {
   return new Promise((resolve, reject) => {
     if (isString(key)) {
-      resolve(storage.getItem(key));
+      resolve(deserialize(storage.getItem(key)));
     } else {
       reject({ message: "key는 문자 타입이 아닙니다." });
     }
