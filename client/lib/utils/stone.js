@@ -13,7 +13,7 @@ const defaultOptions = {
   },
 };
 
-const stone = async (options = {}) => {
+export const stone = async (options = {}) => {
   const { url, ...restOptions } = {
     ...defaultOptions,
     ...options,
@@ -32,14 +32,14 @@ const stone = async (options = {}) => {
 };
 
 stone.get = (url, options) => {
-  stone({
+  return stone({
     url,
     ...options,
   });
 };
 
-stone.post = (url, options, body) => {
-  stone({
+stone.post = async (url, options, body) => {
+  return stone({
     method: "POST",
     url,
     ...options,
@@ -47,8 +47,8 @@ stone.post = (url, options, body) => {
   });
 };
 
-stone.put = (url, options, body) => {
-  stone({
+stone.put = async (url, options, body) => {
+  return stone({
     method: "PUT",
     url,
     ...options,
@@ -56,8 +56,8 @@ stone.put = (url, options, body) => {
   });
 };
 
-stone.delete = (url, options) => {
-  stone({
+stone.delete = async (url, options) => {
+  return stone({
     method: "DELETE",
     url,
     ...options,

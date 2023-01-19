@@ -33,6 +33,7 @@ export function xhrData({
   xhr.addEventListener("readystatechange", () => {
     // 객체 구조 분해 할당
     const { status, readyState, response } = xhr;
+    console.log(xhr);
 
     if (status >= 200 && status < 400) {
       if (readyState === 4) {
