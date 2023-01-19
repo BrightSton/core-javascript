@@ -1,9 +1,16 @@
+/* global gsap */
 import {
   insertLast,
   xhrData,
   stone,
-  getNode,
+  getNode as $,
   renderUserCard,
+  changeColor,
+  delayP,
+  renderSpinner,
+  renderEmptyCard,
+  getNode,
+  attr,
 } from "./lib/index.js";
 
 // rendingUserList 함수 만들기
@@ -19,15 +26,53 @@ import {
 const userCardCOntainer = getNode(".user-card-inner");
 
 async function rendingUserList() {
-  let response = await stone.get(
-    "https://jsonplaceholder.typicode.com/users/1"
-  );
+  renderSpinner(userCardCOntainer);
 
-  console.log(response.data);
+  try {
+    await delayP(2000);
 
-  let userData = response.data;
+    getNode(".loadingSpinner").remove();
 
-  renderUserCard(userCardCOntainer, userData);
+    let response = await stone.get("http://localhost:3000/users");
+    console.log(response.data);
+
+    let userData = response.data;
+
+    userData.forEach((data) => renderUserCard(userCardCOntainer, data));
+
+    console.log(gsap.utils.toArray(".user-card"));
+
+    changeColor(".user-card");
+
+    gsap.to(gsap.utils.toArray(".user-card"), {
+      x: 100,
+      opacity: 1,
+      duration: 1.5,
+      stagger: 0.2,
+    });
+  } catch (err) {
+    renderEmptyCard(userCardCOntainer);
+  }
 }
 
 rendingUserList();
+
+// 삭제 버튼을 클릭하면 콘솔창에 '삭제' 글자가 출력이 될 수 있도록 만들어 주세요.
+
+userCardCOntainer.addEventListener("click", (e) => {
+  let deleteButton = e.target.closest("button");
+  let article = e.target.closest("article");
+
+  //if (!deleteButton) return; -> 버튼이 아니면 실행 안함
+  //if (!article) return; -> 누른 대상의 인접한 대상이 article이 아니면 실행 안함.
+  if (!deleteButton || !article) return;
+
+  let id = attr(article, "data-index").slice(5);
+
+  stone.delete(`http://localhost:3000/users/${id}`).then(() => {
+    userCardCOntainer.innerText = "";
+    rendingUserList();
+  });
+
+  console.log(id);
+});
